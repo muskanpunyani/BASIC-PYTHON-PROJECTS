@@ -1,0 +1,8 @@
+Install pyaudio and speechrecognition.
+
+if using windows 10,install pyaudio as:
+pip install pipwin
+pipwin install pyaudio
+
+
+we need to be connected to internet
