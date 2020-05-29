@@ -1,0 +1,7 @@
+import pyshorteners
+url=input("please enter url")
+s=pyshorteners.Shortener()
+print("your shortened url is ->",s.tinyurl.short(url))
+
+
+#pip install pyshorteners
