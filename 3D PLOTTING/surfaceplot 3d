@@ -1,0 +1,29 @@
+from mpl_toolkits import mplot3d    #using matplotlib toolkits
+
+import numpy as np      #numpy is used for lines and points
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+ax = plt.axes(projection="3d")
+def z_function(x, y):
+    return np.sin(np.sqrt(x ** 2 + y ** 2))
+
+x = np.linspace(-6, 6, 30)  #giving x by user
+y = np.linspace(-6, 6, 30)  #giving y points by user
+
+X, Y = np.meshgrid(x, y)  #[X,Y] = meshgrid(x,y) transforms the domain specified by vectors x and y into arrays X and Y, which can be used to evaluate functions of two variables and three-dimensional mesh/surface plots. The rows of the output array X are copies of the vector x; columns of the output array Y are copies of the vector y.
+Z = z_function(X, Y)    #finding z using x and y
+
+ax.plot_wireframe(X, Y, Z, color='green')  #wired structure
+ax.set_xlabel('x')     #setting name of x axis to x
+ax.set_ylabel('y')
+ax.set_zlabel('z')
+
+plt.show()   #it will show plot with a green colour mesh like structure
+
+
+ax = plt.axes(projection='3d')
+ax.plot_surface(X, Y, Z, rstride=1, cstride=1,  #projecting surface over wired frames
+                cmap='winter', edgecolor='none')
+ax.set_title('surface');
+plt.show()
